@@ -1,0 +1,39 @@
+.blog-card-blog {
+    margin-top: 20px;
+    width: 100%;
+    
+}
+.blog-card {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0px;
+    border-radius: 6px;
+    color: rgba(0, 0, 0, 0.87);
+    background: #fff;
+}
+.blog-card .blog-card-image {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    overflow: hidden;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+    border-radius: 0px;
+   
+}
+.blog-card .blog-card-image img {
+    width: 50%;
+    height: 80%;
+    border-radius: 6px;
+    pointer-events: none;
+    
+   
+}
+.dashboard{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}

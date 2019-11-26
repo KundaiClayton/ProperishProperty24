@@ -1,0 +1,28 @@
+
+.brand-logo{
+   
+   position:fixed;
+  left: 30px;
+   height:6% ;
+   background: transparent;
+   
+   display: inline-block;
+}
+.nav-wrapper{
+    z-index: 100;
+    top: 0;
+    box-sizing: content-box;
+    background: white;
+}
+
+@media (max-width: 968px){
+    .toolbar_navigation-items{
+        display: none;
+    }
+}
+
+@media (min-width: 968px){
+    .burger{
+        display: none;
+    }
+}

@@ -1,0 +1,39 @@
+
+@media(max-width:968px){
+    .btn{
+        width: 100%;
+        background: blue;
+    }
+    
+}
+@media (min-width: 968px){
+    .login{
+  
+   width: 200px;
+   display: inline;
+   }
+   .register{
+       display: inline;
+       width: 200px;
+       text-emphasis: emphasis;
+       text-size:
+      
+   }
+}
+
+.red{
+  color: red;
+}
+
+.contain{
+    height:80px;
+    background:rgb(38, 48, 141);
+   
+    text-align: center;
+}
+.txt{
+    top: 10px;
+    font-size: 40px;
+    color: antiquewhite;
+    font-family: Oxygen;
+}

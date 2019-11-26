@@ -1,0 +1,62 @@
+
+.blues{
+    background: rgb(16, 47, 185);
+    height:390px;
+    
+}
+.container{
+
+ width: 40%;
+ padding: 20px;
+ padding-left: 0px;
+ margin-left: 0%;
+ max-width: 800px;
+}
+
+.heading{
+    top: 30px;
+    font-size:30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding:16px 0;
+    color:white;
+    text-align:left;
+      display: inline;
+  
+}
+.search-label{
+    position:relative;
+}
+ input{
+    width:100% ;
+    padding: 6px;
+    font-size:36px;
+    font-style: italic;
+    color:#444;
+    background: #444;
+    box-sizing:border-box;
+    outline:none
+    
+}
+.search-icon{
+    position: absolute;
+    top: 215px;
+    font-size: 24px;
+    color:#555;
+    
+}
+
+.maps {
+    height: 80px;
+    width: 90px;
+
+}
+img{
+    max-width: 100%;
+    max-height: 100%; 
+object-fit: contain;
+
+}
+.search{
+    width: 29px;
+    
+}
