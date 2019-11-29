@@ -29,7 +29,7 @@ class Searching extends Component {
 
   render(){
     const{posts}=this.state;
-    var movieList=posts.map((post)=>
+    var propList=posts.map((post)=>
     <div className="container" key={post._id}>
         <div className="row">
             <div className="col">
@@ -72,7 +72,7 @@ class Searching extends Component {
        </div>
      </div>
      <div>
-             <ul>{movieList}</ul>
+             <ul>{propList}</ul>
               </div>
     </div>
   );

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {getJwt} from './jwt'
+import {withRouter} from 'react-router-dom'
 import Axios from 'axios';
 
-export default class Authentication extends Component {
+ class Authentication extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -12,20 +13,20 @@ export default class Authentication extends Component {
     componentDidMount(){
         const jwt=getJwt();
         if(!jwt){
-            this.props.history.push('/Login');
+            this.props.history.push('/login');
         }
-        Axios.get('/getUser/', {headers:{Authorization: `Bearer ${jwt}`}}).then(res=>res.setState({
+        Axios.get('https://hosting-property-clone.herokuapp.com/customers/authentication', {headers:{Authorization: `Bearer ${jwt}`}}).then(res=>this.setState({
             user:res.data
         })).catch(err=>{
             localStorage.removeItem('cool-jwt');
-            this.props.history.push('/Login');
+            this.props.history.push('/login');
     
     });
     }
     render() {
-        if(this.user==undefined){
+        if(this.user===undefined){
             return(
-                <div><h1>loading</h1></div>
+                <div><h1>loading...</h1></div>
             )
         }
         return (
@@ -35,3 +36,4 @@ export default class Authentication extends Component {
         )
     }
 }
+export default withRouter(Authentication)

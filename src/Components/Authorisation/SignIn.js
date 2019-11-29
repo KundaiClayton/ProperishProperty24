@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
 import axios from 'axios'
 import './signin.css'
  class SignIn extends Component {
@@ -18,10 +19,15 @@ import './signin.css'
         console.log(e)
         e.preventDefault()
         axios.post(`https://hosting-property-clone.herokuapp.com/customers/authentication`, {
-            email: this.state.email,
-            password: this.state.password
-          }).then(res=>localStorage.setItem('cool-jwt',res.data)).catch(error=>{
+            "email": this.state.email,
+            "password": this.state.password
+          }).then(res=>{
+            //localStorage.setItem('cool-jwt',res.data);
+            this.props.history.push('/',res);
+          }).catch(error=>{
               console.log(error);
+              alert("'Incorrect password/email, or \n Account doesn't exists!, Please sign up'");
+              this.props.history.push('/registration')
           });
           
         
@@ -47,8 +53,9 @@ import './signin.css'
                        <input type='email' id='email' value={this.state.email} onChange={this.change}/>
                    </div>
                    <div className="input-field">
-                       <label htmlFor="password">Password</label>
-                       <input type='password' id='password' value={this.state.password} onChange={this.change}/>
+                    
+                       <label htmlFor="password" >Password</label>
+                       <input type='password'  id='password' value={this.state.password} onChange={this.change}/>
                    </div>
                    <div className="input-field">
                        <button className="btn login  blue darken-4" >Login</button>
