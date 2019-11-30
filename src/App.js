@@ -13,7 +13,7 @@ import Backdrop from './Components/Layout/Backdrop/Backdrop'
 import Bottom from './Components/Layout/bottom'
 import map from './assets/map.png'
 import Authentication from './Components/Authorisation/Authentication'
-import Protected from './Components/Authorisation/Protected'
+
 class App extends Component {
   
   state={

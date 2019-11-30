@@ -17,7 +17,8 @@
     top: 30px;
     font-size:30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding:16px 0;
+    padding:16px 0 ;
+   
     color:white;
     text-align:left;
       display: inline;
@@ -59,4 +60,17 @@ object-fit: contain;
 .search{
     width: 29px;
     
+}@media (max-width: 968px){
+    .maps{
+        display: none;
+    }
+    .heading{
+        font-size:23px;
+    }
+}
+
+@media (min-width: 968px){
+    maps{
+        display: none;
+    }
 }

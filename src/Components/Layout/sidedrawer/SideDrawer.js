@@ -2,6 +2,7 @@ import React from 'react'
 import './SideDrawer.css'
 import LoggedIn from '../LoggedIn'
 import LoggedOut from '../LoggedOut'
+import  { NavLink } from 'react-router-dom'
 
 const sideDrawer =props=>{
 
@@ -17,8 +18,7 @@ const sideDrawer =props=>{
             <div></div>
         <LoggedIn onClick={props.click}/>
        
-        <a href="/propView">Home</a>
-
+        <NavLink to="/propView">Home</NavLink>
         </ul>
   
     </div>

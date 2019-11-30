@@ -1,5 +1,6 @@
 import React ,{Component}from 'react'
 import PropertySummary from './PropertySummary'
+import  { NavLink } from 'react-router-dom'
 import Axios from 'axios'
 import GoogleMapReact from 'google-map-react'
 import {GoogleComponent} from 'react-google-location'
@@ -53,7 +54,7 @@ class PropertyList extends Component{
                             <p className="card-text text-secondary">Location:{post.location}</p>
                             <p className="card-text text-danger">Price:{post.price}</p>
                            
-                            <a href={`/property/${post._id}`} className="btn btn-outline-success">Details</a>
+                            <NavLink to={`/property/${post._id}`} className="btn btn-outline-success">Details</NavLink>
                         </div>
                         </div>
                       {/**   <div className="map">
