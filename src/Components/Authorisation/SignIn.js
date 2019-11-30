@@ -8,7 +8,8 @@ import './signin.css'
          super(props)
          this.state={
             email:'',
-            password:''
+            password:'',
+            loggedin: false
          };
          this.change=this.change.bind(this);
          
@@ -18,16 +19,20 @@ import './signin.css'
     submit=(e)=>{
         console.log(e)
         e.preventDefault()
-        axios.post(`https://hosting-property-clone.herokuapp.com/customers/authentication`, {
-            "email": this.state.email,
-            "password": this.state.password
+        axios.post(`https://hosting-property-clone.herokuapp.com/Customers/authentication`, {
+            email: this.state.email,
+            password: this.state.password
           }).then(res=>{
             //localStorage.setItem('cool-jwt',res.data);
-            this.props.history.push('/',res);
+            this.props.history.push('/');
+            this.setState({
+                loggedin:true
+            })
           }).catch(error=>{
               console.log(error);
-              alert("'Incorrect password/email, or \n Account doesn't exists!, Please sign up'");
-              this.props.history.push('/registration')
+              
+              this.props.history.push('/registration');
+              alert("'Incorrect password/email, or \n Account doesn't exists!, Please sign up'")
           });
           
         

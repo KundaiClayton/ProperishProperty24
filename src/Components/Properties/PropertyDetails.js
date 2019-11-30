@@ -76,8 +76,8 @@ class PropertyDetails extends Component {
     var latnum=new Number(parseFloat(res.data.results[0].geometry.location.la)).toFixed(2);
     var lngnum=new Number(parseFloat(res.data.results[0].geometry.location.lng)).toFixed(2);
      this.setState({
-       lat:latnum,
-       lng:lngnum
+       lat:lat,
+       lng:lng
      })
    console.log(this.state.lat);
    console.log(lng);

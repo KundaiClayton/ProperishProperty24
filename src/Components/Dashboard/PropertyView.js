@@ -12,7 +12,7 @@ class PropertyView extends Component{
         super(props)
         this.state={
           posts:[]
-          ,query:""
+          ,query:null
         }
         this.onSubmit=this.onSubmit.bind(this);
         this.changeHandler=this.changeHandler.bind(this);
@@ -25,21 +25,20 @@ class PropertyView extends Component{
         e.preventDefault();
         
         var query=this.state.query;
-        console.log(query);
-        
-      }
-      componentDidMount(){
-          
-          
         var api=`https://hosting-property-clone.herokuapp.com/properties/search/${this.state.query}`
         axios.get(`https://hosting-property-clone.herokuapp.com/properties/search/${this.state.query}`).then(res=>this.setState({
           posts:res.data
           
         }))
-      } 
+       // console.log(query);
+        
+      }
+     
+      
     render(){
         const {property}=this.props;
         const {posts}=this.state;
+        const query=this.state;
         console.log(this.state.query);
         
         var propList=posts.map((post)=>
@@ -68,6 +67,14 @@ class PropertyView extends Component{
           
           
         </div>)
+        function rend(){
+           if(query!==""){
+              return <PropertyList/>
+           }else if(query!=="" && posts.includes(query)===true){
+             return <ul>{propList}</ul>
+           }
+              
+          };
         console.log(posts);
         console.log(propList)
         return(
@@ -84,8 +91,8 @@ class PropertyView extends Component{
                          <div className="blog-card-image">
                         
                               <ul>
-                                  <PropertyList/>
-                                  {propList}
+                                 {rend()}
+                                  
                               </ul>
                             
                          </div>
@@ -106,3 +113,12 @@ const mapStateToProps=(state)=>{
 }
 
 export default connect(mapStateToProps)(PropertyView)
+
+/** if(!posts.includes(query)){
+               return <ul>{propList}</ul>
+               
+              } else if(query==" " || posts.includes(query)===false){
+                return <PropertyList/>
+              }else{
+                return <ul>{propList}</ul>
+              } */
