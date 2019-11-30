@@ -56,7 +56,7 @@ class PropertyView extends Component{
                                 <p className="card-text text-secondary">Location:{post.location}</p>
                                 <h6 className="card-text text-primary">Posted by:{post.agent}</h6>
                                 <p className="card-text text-danger">Price:{post.price}</p>
-                                <a href={'/property'} className="btn btn-outline-success">Details</a>
+                                <a href={`/property/${post._id}`} className="btn btn-outline-success">Details</a>
                             </div>
                             </div>
                         </div>
@@ -68,11 +68,15 @@ class PropertyView extends Component{
           
         </div>)
         function rend(){
-           if(query!==""){
-              return <PropertyList/>
-           }else if(query!=="" && posts.includes(query)===true){
-             return <ul>{propList}</ul>
-           }
+            if(query["query"]==null){
+                return <PropertyList/>
+             }else if(posts.length==0){
+                return <div className=" text-center text-danger"><h2>Oooops Couldnt find the property</h2></div>
+             }else {
+             
+             
+              return <ul>{propList}</ul>
+             }
               
           };
         console.log(posts);
@@ -84,7 +88,7 @@ class PropertyView extends Component{
             <form onSubmit={this.onSubmit} className="">
                   <SearchBar handler={this.changeHandler} value={this.state.query} />
             </form>
-             <div className="container">
+             
                 <div className="row">
                  <div className="col">
                      <div className="blog-card blog-card-blog">
@@ -102,7 +106,7 @@ class PropertyView extends Component{
                  </div>
                 </div>
                 </div>
-            </div>
+            
         )
     }
 }

@@ -24,7 +24,7 @@ import './signin.css'
             password: this.state.password
           }).then(res=>{
             //localStorage.setItem('cool-jwt',res.data);
-            this.props.history.push('/');
+            this.props.history.push('/propView');
             this.setState({
                 loggedin:true
             })

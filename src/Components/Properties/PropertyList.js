@@ -56,24 +56,25 @@ class PropertyList extends Component{
                             <a href={`/property/${post._id}`} className="btn btn-outline-success">Details</a>
                         </div>
                         </div>
-                        <div className="map">
+                      {/**   <div className="map">
                         <GoogleMapReact
                 center={center}
    zoom={5}
                 >
-                    {this.state.posts.map((post) => {
-                        return <Marker
-                            key={post._id}
-                            lat={post.lat}
-                            lng={post.lng}
+                
+                         <Marker
+                            key={this.key}
+                           // lat={lat}
+                           // lng={lng}
                            // position={post.location}
-                            text={post.agent}
+                            
                            
                         ></Marker>
-                    })}
+                    
                 </GoogleMapReact>
-
-            </div>
+                */
+                     }
+            
             <div>
           
 

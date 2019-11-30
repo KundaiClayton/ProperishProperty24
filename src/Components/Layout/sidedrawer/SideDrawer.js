@@ -17,7 +17,7 @@ const sideDrawer =props=>{
             <div></div>
         <LoggedIn onClick={props.click}/>
        
-        <a href="/">Home</a>
+        <a href="/propView">Home</a>
 
         </ul>
   

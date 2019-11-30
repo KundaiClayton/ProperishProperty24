@@ -5,6 +5,7 @@ import SignIn from './Components/Authorisation/SignIn';
 import SignUp from './Components/Authorisation/SignUp';
 import PropertyView from './Components/Dashboard/PropertyView'
 import PropertyDetails from './Components/Properties/PropertyDetails'
+import PropertyList from './Components/Properties/PropertyList'
 import Search from './Components/search/search'
 import Searching from './Components/search/Searching'
 import SideDrawer from './Components/Layout/sidedrawer/SideDrawer'
@@ -46,11 +47,12 @@ class App extends Component {
        {backdrop}
       
          <Switch>
-           <Route exact path='/' component={PropertyView}  />
+           <Route exact path='/' component={SignIn}  />
            <Route path='/property/:id' component={PropertyDetails}/>
-           <Route  path='/login' component={SignIn}/>
+           <Route  path='/propView' component={PropertyView}/>
            <Route  path='/registration' component={SignUp}/>
-           {/**<Route path='/property' component={PropertyDetails}/>**/}
+
+           <Route path='/property' component={PropertyList}/>
           
            
          </Switch>

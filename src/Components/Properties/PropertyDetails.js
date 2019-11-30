@@ -4,21 +4,20 @@ import Searching from '../search/Searching'
 import axios from 'axios'
 import {Map,InfoWindow,Marker,GoogleApiWrapper} from 'google-maps-react'
 import GoogleMapReact from 'google-map-react';
+import { GoogleMap } from "react-google-maps";
+import './marker.css'
 const mapStyles = {
-  width: '50%',
+  width: '70%',
   height: '40%',
 };
-var lat,lng,geometry;
+let lat,lng,geom;
 class PropertyDetails extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
      posts:[],
-      geometry:{},
-      lat:null,
-      lng:null
-      
+     
     }
   }
   componentDidMount(){
@@ -30,77 +29,16 @@ class PropertyDetails extends Component {
         this.setState({
             posts: res.data
         })
-    });axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
-      params:{
-        address:this.state.posts.location,
-        key:'AIzaSyD1PXDtREIiE7ztzAVVUXIa4ikzy7KtEFs'
-      }
-    }).then(function(res){
-      console.log(res);
-      //log formatted address
-      console.log(res.data.results[0].formatted_address);
-      //console.log(res.data.results[0].geometry.location);
-      //address Componets
-     geometry=res.data.results[0].geometry.location;
-      lat=geometry.lat;
-      lng=geometry.lng;
-       this.setState({
-         lat:lat,
-         lng:lng
-       })
-     console.log(this.state.lat);
-     console.log(lng);
+    });
     
-      
-    }).catch(function(err){
-      console.log(err);
-    })
-   
    
 };
- geocode(){
-  axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
-    params:{
-      address:this.state.posts.location,
-      key:'AIzaSyD1PXDtREIiE7ztzAVVUXIa4ikzy7KtEFs'
-    }
-  }).then(function(res){
-    console.log(res);
-    //log formatted address
-    console.log(res.data.results[0].formatted_address);
-    //console.log(res.data.results[0].geometry.location);
-    //address Componets
-   geometry=res.data.results[0].geometry.location;
-    lat=geometry.lat;
-    lng=geometry.lng;
-    var latnum=new Number(parseFloat(res.data.results[0].geometry.location.la)).toFixed(2);
-    var lngnum=new Number(parseFloat(res.data.results[0].geometry.location.lng)).toFixed(2);
-     this.setState({
-       lat:lat,
-       lng:lng
-     })
-   console.log(this.state.lat);
-   console.log(lng);
-  
-    
-  }).catch(function(err){
-    console.log(err);
-  })
-  
-} 
-;
+//geocode
 
-  displayMarkers = () => {
-    return this.state.geometry.map((store, index) => {
-      return <Marker key={index} id={index} position={{
-       lat: store.lat,
-       lng: store.lng
-     }}
-     onClick={() => console.log("You clicked me!")} />
-    })
-  };
- 
-  
+  Clicked=()=>{
+    
+    alert('coming soon');
+  }
 
     render(){
       let center={
@@ -109,10 +47,13 @@ class PropertyDetails extends Component {
      };
      
       const {posts}=this.state;
-     var geometry;
-     //this.geocode();
-     /**
-     geocode()
+     // const lat=this.state;
+    //  const lng=this.state;
+      
+   //  const {geometry}=this.state;
+     //this.geocode()
+     
+    //console.log(geometry)
       
       function geocode(){
         axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
@@ -120,35 +61,34 @@ class PropertyDetails extends Component {
             address:posts.location,
             key:'AIzaSyD1PXDtREIiE7ztzAVVUXIa4ikzy7KtEFs'
           }
-        }).then(function(res){
+        }).then((res)=>{
           console.log(res);
           //log formatted address
           console.log(res.data.results[0].formatted_address);
           console.log(res.data.results[0].geometry.location);
+          console.log(res.data.results[0].place_id);
           //address Componets
-         geometry=res.data.results[0].geometry.location;
-          lat=geometry.lat;
-          lng=geometry.lng;
-        
-         console.log(lat);
+          var latnum=new Number(parseFloat(res.data.results[0].geometry.location.la)).toFixed(2);
+          var lngnum=new Number(parseFloat(res.data.results[0].geometry.location.lng)).toFixed(2);
+         // console.log(latnum)
+          geom=res.data.results[0].geometry.location;
+          var lat=geom.lat;
+          var lng=geom.lng;
+         var key=res.data.results[0].place_id
+         console.log(geom);
          console.log(lng);
         
           
         }).catch(function(err){
           console.log(err);
         })
-      } */
+      } 
    // const {geometry}=this.state
     return (
-         
+        
        <div className="container section project-details">
-      
-         <div className="card z-depth-0">
-         <div className="container" key={posts._id}>
-            <div className="row">
-                <div className="col">
-                    <div className="blog-card blog-card-blog">
-                        <div className="blog-card-image">
+       {geocode()}
+         
                         <div className="card text-center">
                             <div className="overflow">
                             <img src={posts.imageUrl} alt={`${posts.name} image`} className="movieImg"/>
@@ -158,77 +98,40 @@ class PropertyDetails extends Component {
                                 <p className="card-text text-secondary">Location:{posts.location}</p>
                                 <h6 className="card-text text-primary">Posted by:{posts.agent}</h6>
                                 <p className="card-text text-danger">Price:{posts.price}</p>
-                               
+                                <a href={`/property`} className="btn btn-outline-success">Back</a>
+                              
+                               <ul></ul>
                             </div>
+                            
                             </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div className="container section project-details">
+                            <div className="map">
       
-       
-       
-         <Map
+        
+        <Map
+          key={this.key}
           google={this.props.google}
           zoom={8}
-          style={mapStyles}
-          initialCenter={{ lat: this.state.lat, lng: this.state.lng}}
-          
+         
+          initialCenter={geom}
+        
         >
-        <Marker position={{
-       lat:this.state.lat,
-       lng: this.state.lng
-     }}
-     onClick={() => console.log("You clicked me!")} /> 
-        </Map> {
-        <GoogleMapReact
-                center={center}
-                zoom={5}
-                >
-                    
-                         <Marker
-                            key={this.state.geometry._id}
-                            lat={this.state.lat}
-                            lng={this.state.lng}
-                           // position={post.location}
-                           
-                           
-                        ></Marker>
-                    
-                </GoogleMapReact> 
-                
-                /** 
-                 return(
-           <div>
-           <Map
-          google={this.props.google}
-          zoom={8}
-          style={mapStyles}
-          initialCenter={{ lat: lat, lng: lng}}
-        ><Marker  position={{
-       lat: lat,
-       lng: lng
-     }}
-     onClick={() => console.log("You clicked me!")} />
-          {this.displayMarkers()}
-        </Map>
-           </div>
-         )
-         // this.setState({
-           // geometry:res.data.results[0].geometry.location
-            
-       //   })
-                */}
+        <Marker position={geom}
+     onClick={() => console.log("boop")} /> 
+        </Map> 
+        
+
 
           </div>  
-       </div>
+          <button onClick={this.Clicked} className="btn btn-outline-success">Book Viewing</button>
+                        </div>
+                        </div>
+                   
+        
+        
     )
 }}
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyD1PXDtREIiE7ztzAVVUXIa4ikzy7KtEFs'
 })(PropertyDetails);
+
