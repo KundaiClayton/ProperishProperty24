@@ -22,9 +22,9 @@ var phantom = {
 const Bottom=()=>{
   return (
         <div>
-            <div style={phantom} />
-            <div style={style}>
-                
+            <div style={phantom}/>
+            <div className="card-title" style={style}> <h2>Property 24 Clone
+                </h2>
             </div>
         </div>
     )

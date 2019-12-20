@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import map from '../assets/map.png'
 import '../../Search.css';
-import axios from "axios"
+
 
 export default class SearchBar extends Component {
 
@@ -20,7 +20,7 @@ export default class SearchBar extends Component {
             <input onChange={this.props.handler} 
                value={this.props.value}
                className="col-12 form-control"
-               placeholder="Search Property..." 
+               placeholder="Search Property ..." 
                id="search-input" 
                
                />

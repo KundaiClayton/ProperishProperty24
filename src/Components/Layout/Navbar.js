@@ -15,7 +15,7 @@ const Navbar=props=>{
             <div className="burger">
                 <DrawerToggleButton click={props.drawerClickHandler}/>
             </div>
-                <Link to='/' className="brand-logo" ><img src={logo}/></Link>
+                <Link to='/propView' className="brand-logo" ><img src={logo}/></Link>
                 <div className="spacer"></div>
                 <div className="toolbar_navigation-items">
                 <LoggedIn/>

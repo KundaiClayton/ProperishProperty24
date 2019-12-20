@@ -19,6 +19,12 @@
        text-size:
       
    }
+   .back{
+    display: inline;
+    width: 200px;
+    text-emphasis: emphasis;
+    text-size:
+   }
 }
 
 .red{

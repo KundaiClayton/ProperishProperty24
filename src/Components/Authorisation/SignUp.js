@@ -67,7 +67,7 @@ class SignUp extends Component {
                     </div>
                     
                     <div className="input-field">
-                        <button className="btn blue darken-4 z-depth-0" disabled={!isEnabled} >Register</button>
+                        <button className="register btn blue darken-4 z-depth-0" disabled={!isEnabled} >Register</button>
                     </div>
                     <div className="input-field">
                         <Link to={'/'} className="back btn red darken-3 z-depth-0 " >Back</Link>

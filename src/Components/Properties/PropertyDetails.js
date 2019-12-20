@@ -1,4 +1,6 @@
 import React,{Component} from 'react'
+import {BrowserRouter,Switch,Route} from 'react-router-dom'
+import  { NavLink } from 'react-router-dom'
 import Search from '../search/search'
 import Searching from '../search/Searching'
 import axios from 'axios'
@@ -10,14 +12,14 @@ const mapStyles = {
   width: '70%',
   height: '40%',
 };
-let lat,lng,geom;
+var geom;
 class PropertyDetails extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
      posts:[],
-     
+     //geom:{}
     }
   }
   componentDidMount(){
@@ -47,6 +49,7 @@ class PropertyDetails extends Component {
      };
      
       const {posts}=this.state;
+      const {geom}=this.state
      // const lat=this.state;
     //  const lng=this.state;
       
@@ -77,7 +80,26 @@ class PropertyDetails extends Component {
          var key=res.data.results[0].place_id
          console.log(geom);
          console.log(lng);
+        return(
+            <div className="map">
+      
         
+      <Map
+        key={this.key}
+        google={this.props.google}
+        zoom={8}
+       
+        initialCenter={geom}
+      
+      >
+      <Marker position={geom}
+   onClick={() => console.log("boop")} /> 
+      </Map> 
+      
+
+
+        </div>  
+        )
           
         }).catch(function(err){
           console.log(err);
@@ -87,7 +109,7 @@ class PropertyDetails extends Component {
     return (
         
        <div className="container section project-details">
-       {geocode()}
+      
          
                         <div className="card text-center">
                             <div className="overflow">
@@ -98,9 +120,10 @@ class PropertyDetails extends Component {
                                 <p className="card-text text-secondary">Location:{posts.location}</p>
                                 <h6 className="card-text text-primary">Posted by:{posts.agent}</h6>
                                 <p className="card-text text-danger">Price:{posts.price}</p>
-                                <a href={`/property`} className="btn btn-outline-success">Back</a>
-                              
-                               <ul></ul>
+                                <NavLink to={`/propView`} className="btn btn-outline-success">Back</NavLink>
+                                <div>...{JSON.stringify(this.geom)}</div>
+                               <ul>{console.log(this.geom)}</ul>
+                                {geocode()}
                             </div>
                             
                             </div>
@@ -121,7 +144,7 @@ class PropertyDetails extends Component {
         
 
 
-          </div>  
+          </div>   
           <button onClick={this.Clicked} className="btn btn-outline-success">Book Viewing</button>
                         </div>
                         </div>
