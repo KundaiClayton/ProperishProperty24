@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "14e5e42c3c94d6d56e81c7fc12c3230a",
+    "revision": "5b7cf25f9895f39f6bfae78b0ed56146",
     "url": "/ProperishProperty24/index.html"
   },
   {
-    "revision": "fcf029ee0ed739104170",
-    "url": "/ProperishProperty24/static/css/2.7eda4144.chunk.css"
+    "revision": "5aece45fc43bd5cfdef3",
+    "url": "/ProperishProperty24/static/css/2.c00f9245.chunk.css"
   },
   {
-    "revision": "ba9fdae80e932386ca53",
-    "url": "/ProperishProperty24/static/css/main.ff311880.chunk.css"
+    "revision": "b1225f854c68c8db5e7e",
+    "url": "/ProperishProperty24/static/css/main.f6eec45c.chunk.css"
   },
   {
-    "revision": "fcf029ee0ed739104170",
-    "url": "/ProperishProperty24/static/js/2.31bbb07e.chunk.js"
+    "revision": "5aece45fc43bd5cfdef3",
+    "url": "/ProperishProperty24/static/js/2.5c71fd25.chunk.js"
   },
   {
-    "revision": "ba9fdae80e932386ca53",
-    "url": "/ProperishProperty24/static/js/main.17132302.chunk.js"
+    "revision": "b1225f854c68c8db5e7e",
+    "url": "/ProperishProperty24/static/js/main.40cac886.chunk.js"
   },
   {
     "revision": "f58b9eae2aefd52dc5b4",
