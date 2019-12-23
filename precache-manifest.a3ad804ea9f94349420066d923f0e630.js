@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5b7cf25f9895f39f6bfae78b0ed56146",
+    "revision": "1ec7c8cb1b546a7b758639a715aa5a18",
     "url": "/ProperishProperty24/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ProperishProperty24/static/css/2.c00f9245.chunk.css"
   },
   {
-    "revision": "b1225f854c68c8db5e7e",
+    "revision": "6b7dd9010dba85b205aa",
     "url": "/ProperishProperty24/static/css/main.f6eec45c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ProperishProperty24/static/js/2.5c71fd25.chunk.js"
   },
   {
-    "revision": "b1225f854c68c8db5e7e",
-    "url": "/ProperishProperty24/static/js/main.40cac886.chunk.js"
+    "revision": "6b7dd9010dba85b205aa",
+    "url": "/ProperishProperty24/static/js/main.7d8d5c5a.chunk.js"
   },
   {
     "revision": "f58b9eae2aefd52dc5b4",
